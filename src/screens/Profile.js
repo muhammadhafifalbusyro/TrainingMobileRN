@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import {View,Text} from 'react-native'
+import {View,Text, ActivityIndicator} from 'react-native'
 
 const Profile = ({navigation}) => {
 
     const [dataUser,setDataUser] = useState(null)
+    const [loading,setLoading] = useState(false)
 
     const getDataUser = () => {
+        setLoading(true)
         return fetch('https://apimobilehris-dev.ut.ac.id/user-info',{
             method: 'GET',
             headers: {
@@ -19,10 +21,14 @@ const Profile = ({navigation}) => {
           .then(response => response.json())
           .then(json => {
             console.warn('data json', json)
-            setDataUser(json?.data)
+            setTimeout(() => {
+                setLoading(false)
+                setDataUser(json?.data)
+            }, 5000);
           })
           .catch(error => {
             console.error(error);
+            setLoading(false)
           });
       };
     
@@ -38,6 +44,7 @@ const Profile = ({navigation}) => {
     }, [navigation]);
     return (
         <View style={{flex:1,backgroundColor:'white'}}>
+           {loading &&  <ActivityIndicator size="large" />}
             <Text style={{color:'black'}}>Halaman Profile</Text>
             <Text style={{color:'black'}}>Nama: {dataUser?.nama}</Text>
             <Text style={{color:'black'}}>Email: {dataUser?.email}</Text>
