@@ -1,11 +1,11 @@
-// import React from 'react'
-// import StackNavigator from './routes/StackNavigator'
+import React from 'react'
+import StackNavigator from './routes/StackNavigator'
 
-// const App = () => {
-//     return <StackNavigator/>
-// }
+const App = () => {
+    return <StackNavigator/>
+}
 
-// export default App
+export default App
 
 
 // In App.js in a new project
@@ -59,59 +59,60 @@
 // export default App;
 
 
-import * as React from 'react';
-import { View, Text, Button, Alert } from 'react-native';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import * as React from 'react';
+// import { View, Text, Button, Alert } from 'react-native';
+// import { NavigationContainer, useNavigation } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
-function HomeScreen({navigation}) {
+// function HomeScreen({navigation}) {
 
-    // const navigation = useNavigation()
-    const user = {
-        id: 123,
-        name:"User Name"
-    }
+//     // const navigation = useNavigation()
+//     const user = {
+//         id: 123,
+//         name:"User Name"
+//     }
 
-    const handlerNavigate = () => {
-        // Alert.alert("Hallo")
-        // navigation.navigate('Setting')
-        navigation.navigate('Setting', user)
-    }
+//     const handlerNavigate = () => {
+//         // Alert.alert("Hallo")
+//         // navigation.navigate('Setting')
+//         navigation.navigate('Setting', user)
+//     }
 
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text >Home Screen</Text>
-        <Button title='Go To Setting' onPress={()=>handlerNavigate()}/>
-        </View>
-    );
-}
-function SettingScreen({navigation, route}) {
+//     return (
+//         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//         <Text >Home Screen</Text>
+//         <Button title='Go To Setting' onPress={()=>handlerNavigate()}/>
+//         </View>
+//     );
+// }
+// function SettingScreen({navigation, route}) {
 
-    const user = route?.params
+//     const user = route?.params
 
-    const handlerNavigate = () => {
-        // Alert.alert("Hallo")
-        // navigation.navigate('Setting')
-        navigation.goBack()
-    }
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Setting Screen : {user?.name}</Text>
-        <Button title='Go Back' onPress={()=>handlerNavigate()}/>
-      </View>
-    );
-  }
+//     const handlerNavigate = () => {
+//         // Alert.alert("Hallo")
+//         // navigation.navigate('Setting')
+//         navigation.goBack()
+//     }
+//     return (
+//       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//         <Text>Setting Screen : {user?.name}</Text>
+//         <Button title='Go Back' onPress={()=>handlerNavigate()}/>
+//       </View>
+//     );
+//   }
 
-  function HistoryScreen({navigation, route}) {
+//   function HistoryScreen({navigation, route}) {
 
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>History Screen</Text>
-      </View>
-    );
-  }
+//     return (
+//       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//         <Text>History Screen</Text>
+//       </View>
+//     );
+//   }
 
 // // Inisialiasi Stack Navigatornya
 // const Stack = createNativeStackNavigator();
@@ -133,24 +134,41 @@ function SettingScreen({navigation, route}) {
 
 //Inisialisasi Bottom tab navigatornya
 
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator initialRouteName='History'>
-        <Tab.Screen name="Home" component={HomeScreen} options={{
-            tabBarLabel :'Home',
-            tabBarIcon: ({focused}) =>
-                focused ? (
-                    <Text style={{color:'deepskyblue'}}>H</Text>
-                ) : (
-                    <Text style={{color:'black'}}>H</Text>
-                ),
-        }} />
-        <Tab.Screen name="Setting" component={SettingScreen} />
-        <Tab.Screen name="History" component={HistoryScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <Tab.Navigator initialRouteName='History'>
+//         <Tab.Screen name="Home" component={HomeScreen} options={{
+//             tabBarLabel :'Home',
+//             tabBarIcon: ({focused}) =>
+//                 focused ? (
+//                     <Text style={{color:'deepskyblue'}}>H</Text>
+//                 ) : (
+//                     <Text style={{color:'black'}}>H</Text>
+//                 ),
+//         }} />
+//         <Tab.Screen name="Setting" component={SettingScreen} />
+//         <Tab.Screen name="History" component={HistoryScreen} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+
+//Inisialisasi Bottom tab navigatornya
+
+// const Drawer = createDrawerNavigator();
+
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator initialRouteName='History'>
+//         <Drawer.Screen name="Home" component={HomeScreen} />
+//         <Drawer.Screen name="Setting" component={SettingScreen} />
+//         <Drawer.Screen name="History" component={HistoryScreen} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// }

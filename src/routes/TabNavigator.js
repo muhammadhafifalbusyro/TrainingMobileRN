@@ -4,16 +4,30 @@ import Profile from '../screens/Profile';
 import History from '../screens/History';
 import { Text } from 'react-native';
 import DrawerNavigator from './DrawerNavigator';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Message from '../screens/Message';
+
 
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-function TabNavigator() {
+function HomeStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home} />
+            
+            
+        </Stack.Navigator>
+  );
+}
+
+function  TabNavigator() {
   return (
     <Tab.Navigator>
         <Tab.Screen 
         name="Home" 
-        component={Home}  
+        component={HomeStack}  
         options={{
             tabBarLabel :'Home',
             tabBarIcon: ({focused}) =>
