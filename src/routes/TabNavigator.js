@@ -12,22 +12,13 @@ import Message from '../screens/Message';
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function HomeStack() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
-            
-            
-        </Stack.Navigator>
-  );
-}
 
 function  TabNavigator() {
   return (
     <Tab.Navigator>
         <Tab.Screen 
         name="Home" 
-        component={HomeStack}  
+        component={Home}  
         options={{
             tabBarLabel :'Home',
             tabBarIcon: ({focused}) =>
